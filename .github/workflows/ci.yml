@@ -1,0 +1,18 @@
+# Nombre del workflow(En GitHub se denomina workflow a un pipeline)
+name: First workflow
+
+# Eventos para disparar el workflow 
+on: [push]
+
+# Tareas o trabajos del workflow
+jobs:
+  # Nombre de la tarea o trabajo
+  build:
+    # Contendor donde se ejecutará la tarea 
+    runs-on: ubuntu-latest
+    # Pasos de la tarea
+    steps:
+      - uses: actions/checkout@v1
+      # GitHub Action nos proporciona el objeto "github" que contiene información sobre el workflow
+      - name: Hello Codelies!
+        run: echo "Hello!!!! from ${{ github.workflow }} triggered by the ${{ github.event_name }} done by ${{ github.actor }}"
